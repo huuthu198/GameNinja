@@ -19,7 +19,7 @@ public class Enemy : Character
     
     private void Update()
     {
-        if (currentState != null)
+        if (currentState != null && !isDeath)
         {
             currentState.onExecute(this);
         }
@@ -104,6 +104,7 @@ public class Enemy : Character
         if (collision.tag == "EnemyWall")
         {
             ChangeDirection(!isRight);
+            target = null;
         }
     }
 
